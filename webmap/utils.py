@@ -2,11 +2,11 @@
 
 import os
 
-from django.core.files.storage import FileSystemStorage
+from django.core.files.storage import DefaultStorage
 from django.template.defaultfilters import slugify
 
 
-class SlugifyFileSystemStorage(FileSystemStorage):
+class SlugifyFileSystemStorage(DefaultStorage):
     "Storage, ktery odstrani diakritiku a dalsi balast v nazvu souboru"
     def get_valid_name(self, name):
         name, ext = os.path.splitext(name)
